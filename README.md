@@ -1,2 +1,2 @@
-# ASCII_game_girotto
+# Dungeon_crawler
 Terminal ASCII game made in C language
