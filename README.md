@@ -1,6 +1,6 @@
 # Dungeon_Crawler
 
-![ascii_dc](https://github.com/JG-endOS/dungeon_crawler/blob/main/ascii_art.png)
+![ascii_dc]([https://github.com/JG-endOS/dungeon_crawler/blob/main/ascii_art.png](https://github.com/JG-endOS/dungeon_crawler/blob/main/ascii_art.png))
 
 ### Dev's
 João Gabriel & Pedro Alan
