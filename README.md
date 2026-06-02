@@ -1,2 +1,7 @@
 # Dungeon_crawler
-Terminal ASCII game made in C language
+
+Dev's  João Gabriel e Pedro Alan
+---
+Game story  A retired soldier from a distant land tries to feel the glory of battle once more. In this new adventure, he finds a dungeon that catches his attention.
+---
+Commands 
