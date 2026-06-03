@@ -14,6 +14,6 @@ A retired warrior from a distant land tries to feel the glory of battle once mor
 
 ---
 
-### 🎮 Simbols & Actions
+### 🎮 Symbols & Actions
 
 ![commands](https://github.com/JG-endOS/dungeon_crawler/blob/main/simbols%26actions.png)
