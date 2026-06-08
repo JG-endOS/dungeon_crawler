@@ -1,6 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// COORDENADAS DO PLAYER
+int playerX = 7;
+int playerY = 4;
+
+char playerLook = '^';
+
+// VAR IMPORTANTES
+int menu = 1;
+
+int keys = 0;
+
+int lifes = 3;
+
+int map1_ = 1;
+
+// PRIMERIRO MAPA
+char village[10][10] = {
+    "**********",
+    "*        *",
+    "*    #   L",
+    "*    #   *",
+    "*    #   *",
+    "P        *",
+    "*        *",
+    "*   ^    *",
+    "*        *",
+    "**********"
+};
+
 // FUNÇÃO PARA LIMPAR TELA 
 static void clear(){
     #ifdef _WIN32
@@ -158,28 +187,6 @@ static void dungeon() {
     }       
 }  
 
-//COORDENADAS DO PLAYER
-int playerX = 7;
-int playerY = 4;
-
-char playerLook = '^';
-
-int menu = 1;
-
-// PRIMERIRO MAPA
-char village[10][10] = {
-    "**********",
-    "*        *",
-    "*        L",
-    "*        *",
-    "*        *",
-    "P        *",
-    "*        *",
-    "*   ^    *",
-    "*        *",
-    "**********"
-};
-
 // IMPRIME QUALQUER MAPA QUE EU DESENHAR
 static void drawMap(int x, int y,char mapR[x][y]){
     clear();
@@ -201,27 +208,34 @@ static void movement(int x, int y, char mapR[x][y], char direction) {
     int nextX = playerX;
     int nextY = playerY;
 
-    // Determina a nova posição teórica
+    // Determina a nova posição 
     switch (direction) {
         case 'w': case 'W': nextX--; playerLook = '^'; break;// Cima
         case 's': case 'S': nextX++; playerLook = 'v'; break; // Baixo
         case 'a': case 'A': nextY--; playerLook = '<'; break; // Esquerda
         case 'd': case 'D': nextY++; playerLook = '>'; break; // Direita
-        default: return; // Tecla inválida, não faz nada
+        default: return;
     }
 
     // COLISÃO
-    if (nextX >= 0 && nextX < 10 && nextY >= 0 && nextY < 10) {
-        if (mapR[nextX][nextY] != '*' && mapR[nextX][nextY] !='P') {
+    if (nextX >= 0 && nextY >= 0) {
+
+        if (mapR[nextX][nextY] =='#' && mapR[nextX][nextY] =='X' && mapR[nextX][nextY] =='Y' && mapR[nextX][nextY] =='Z') {
+            lifes--;
+            if(lifes == 0){
+                clear();
+                printf("[GAME OVER]");
+                menu = read_int(1, 1);
+            }
+        }
+
+        if (mapR[nextX][nextY] != '*' && mapR[nextX][nextY] !='P' ) {
             
-            // Limpa a posição antiga do jogador no mapa
             mapR[playerX][playerY] = ' '; 
             
-            // Atualiza as coordenadas globais do jogador
             playerX = nextX;
             playerY = nextY;
             
-            // Desenha o jogador na nova posição do mapa
             mapR[playerX][playerY] = playerLook;
         }
     }
@@ -253,7 +267,7 @@ static void tutorial(){
     printf("[ Actions ]\n");
     printf("W ==> Moves up '^'\n");
     printf("A ==> Moves left '<'\n");
-    printf("D ==> Moves right '^'\n");
+    printf("D ==> Moves right '>'\n");
     printf("S ==> Moves down 'v'\n");
     printf("i ==> Interaction\n");
     printf("o ==> Attack\n");
@@ -266,7 +280,7 @@ static void tutorial(){
 
 static void map1() {
     menu = 0;
-    while(1) {
+    while(map1_) {
         drawMap(10, 10, village);
 
         movement(10, 10, village, getch());
