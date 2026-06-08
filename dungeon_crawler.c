@@ -152,9 +152,7 @@ static void title() {
 "      3. Exit                                             ",
     };
 
-    int linhas = sizeof(title) / sizeof(title[0]);
-
-    for (int i = 0; i < linhas; i++) {
+    for (int i = 0; i < 10; i++) {
         printf("%s\n", title[i]);
     }
 }
@@ -179,10 +177,8 @@ static void dungeon() {
 "               |       )             | @@@@@@@@@@@@@@@@@@@@@ |     )                  |    ",
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ | @@@@@@@@@@@@@@@@@@@@@@ |^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
     };
- 
-    int linhas = sizeof(dungeon) / sizeof(dungeon[0]);
 
-    for (int i = 0; i < linhas; i++) {
+    for (int i = 0; i < 16; i++) {
         printf("%s\n", dungeon[i]);
     }       
 }  
