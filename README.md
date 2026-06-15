@@ -5,7 +5,7 @@
 ---
 
 ### 🧑‍💻 Dev's
-João Gabriel & Pedro Alan
+JG-endOS & P-Alan
 
 ---
 
